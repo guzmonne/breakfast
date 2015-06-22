@@ -1,4 +1,20 @@
 <template name="admin">
+  
+  <style>
+    .stylish-input-group .input-group-addon{
+      background: white !important; 
+    }
+    .stylish-input-group .form-control{
+      border-right:0; 
+      box-shadow:0 0 0; 
+      border-color:#ccc;
+    }
+    .stylish-input-group button{
+      border:0;
+      background:transparent;
+    }
+  </style>
+
   <div class="container">
     <div class="row" style="margin-top: 50px;">
       <div class="col-sm-3">
@@ -7,7 +23,20 @@
       <div class="col-sm-6">
         <p class="text-center text-muted">
           Primer número <span class="label label-primary">{{first}}</span> | Ultimo número <span class="label label-primary">{{last}}</span> | Siguiente número <span class="label label-success">{{next}}</span>
-        </p> 
+        </p>
+
+        <p>
+          
+          <div class="input-group stylish-input-group">
+            <input type="text" class="form-control" id="filter" placeholder="Filtro" value="{{filter}}">
+            <span class="input-group-addon">
+              <button type="submit">
+                <span class="glyphicon glyphicon-filter"></span>
+              </button>  
+            </span>
+          </div>
+
+        </p>
       </div>
       <div class="col-sm-3">
         <button class="btn btn-danger pull-right" id="clean_clients_table">Limpiar Tabla de Clientes</button>
