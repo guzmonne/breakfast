@@ -18,8 +18,12 @@ Template.formularioDeSorteo.events({
     };
     if (Clients.isNotValid(client)) return Clients.clientIsNotValid(template, client);
     Session.set('loading', true);
+    Session.set('error', false);
     Clients.insert(client, function(err, _id){
-      if (err) console.log(err);
+      if (err) {
+        Session.set('loading', false);
+        Session.set('error', err.reason);
+      };
       Meteor.subscribe('client', _id);
       Session.set('clientId', _id);
     });
@@ -27,6 +31,7 @@ Template.formularioDeSorteo.events({
 });
 
 Template.formularioDeSorteo.helpers({
+  error              : function() { return Session.get('error'); },
   client             : function() { return Session.get('client'); },
   loading            : function() { return Session.get('loading') },
   clientIsNotCreated : function() {

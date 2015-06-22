@@ -8,6 +8,14 @@
           {{> spinner}}
           <div style="height: 50px;"></div>
         {{else}}
+          
+          {{#if error}}
+          <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            {{error}}
+          </div>
+          {{/if}}
+       
           <form class="form-horizontal">
             <fieldset>
               <legend>

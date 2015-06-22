@@ -1,4 +1,9 @@
 Clients.before.insert(function(userId, doc){
+  var client = Clients.findOne({email: doc.email});
+  if (client) {
+    console.log('Error. Email already registered.');
+    throw new Meteor.Error('Email already registered', 'Esta dirección de correo ya esta registrada.');    
+  }
   Counters.upsert({collection: 'clients'}, {$inc: { count: 1 }});
   doc.count   = Counters.findOne({collection: 'clients'}).count;
   doc.deleted = false;
