@@ -1,12 +1,12 @@
 <template name="admin">
-  
+
   <style>
     .stylish-input-group .input-group-addon{
-      background: white !important; 
+      background: white !important;
     }
     .stylish-input-group .form-control{
-      border-right:0; 
-      box-shadow:0 0 0; 
+      border-right:0;
+      box-shadow:0 0 0;
       border-color:#ccc;
     }
     .stylish-input-group button{
@@ -19,6 +19,9 @@
     <div class="row" style="margin-top: 50px;">
       <div class="col-sm-3">
         <button class="btn btn-primary" id="reset_counter">Reset Count</button>
+        <button class="btn btn-{{activeFilter}}" id="toggle_filter">
+          <i class="glyphicon glyphicon-filter"></i>
+        </button>
       </div>
       <div class="col-sm-6">
         <p class="text-center text-muted">
@@ -26,16 +29,14 @@
         </p>
 
         <p>
-          
-          <div class="input-group stylish-input-group">
-            <input type="text" class="form-control" id="filter" placeholder="Filtro" value="{{filter}}">
-            <span class="input-group-addon">
+          <div class="input-group stylish-input-group" id="filter_control">
+            <input type="text" class="form-control toggle-filter" id="filter" placeholder="Filtro" value="{{filter}}">
+            <span class="input-group-addon toggle-filter">
               <button type="submit">
                 <span class="glyphicon glyphicon-filter"></span>
-              </button>  
+              </button>
             </span>
           </div>
-
         </p>
       </div>
       <div class="col-sm-3">
@@ -71,6 +72,6 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
 </template>

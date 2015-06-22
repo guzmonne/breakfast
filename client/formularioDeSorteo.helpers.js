@@ -1,4 +1,10 @@
 Template.formularioDeSorteo.events({
+  'click #new_client': function(e){
+    e.preventDefault();
+    Session.set('loading', false);
+    Session.set('clientId', null);
+    Session.set('client', null);
+  },
   'submit form': function(e){
     e.preventDefault();
     var template = Template.instance();
@@ -10,7 +16,6 @@ Template.formularioDeSorteo.events({
       project  : template.$('#checkboxProject').prop('checked'),
       contact  : template.$('#checkboxContact').prop('checked'),
     };
-    console.log(client);
     if (Clients.isNotValid(client)) return Clients.clientIsNotValid(template, client);
     Session.set('loading', true);
     Clients.insert(client, function(err, _id){
