@@ -1,0 +1,77 @@
+<template name="admin">
+
+  <style>
+    .stylish-input-group .input-group-addon{
+      background: white !important;
+    }
+    .stylish-input-group .form-control{
+      border-right:0;
+      box-shadow:0 0 0;
+      border-color:#ccc;
+    }
+    .stylish-input-group button{
+      border:0;
+      background:transparent;
+    }
+  </style>
+
+  <div class="container">
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-sm-3">
+        <button class="btn btn-primary" id="reset_counter">Reset Count</button>
+        <button class="btn btn-{{activeFilter}}" id="toggle_filter">
+          <i class="glyphicon glyphicon-filter"></i>
+        </button>
+      </div>
+      <div class="col-sm-6">
+        <p class="text-center text-muted">
+          Primer número <span class="label label-primary">{{first}}</span> | Ultimo número <span class="label label-primary">{{last}}</span> | Siguiente número <span class="label label-success">{{next}}</span>
+        </p>
+
+        <p>
+          <div class="input-group stylish-input-group" id="filter_control">
+            <input type="text" class="form-control toggle-filter" id="filter" placeholder="Filtro" value="{{filter}}">
+            <span class="input-group-addon toggle-filter">
+              <button type="submit">
+                <span class="glyphicon glyphicon-filter"></span>
+              </button>
+            </span>
+          </div>
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <button class="btn btn-danger pull-right" id="clean_clients_table">Limpiar Tabla de Clientes</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <table class="table table-responsive table-hover table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Empresa</th>
+            <th>Proyecto</th>
+            <th>Contacto</th>
+            <th>Comentarios</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each clients}}
+            <tr>
+              <td>{{count}}</td>
+              <td>{{name}}</td>
+              <td>{{email}}</td>
+              <td>{{company}}</td>
+              <td>{{project}}</td>
+              <td>{{contact}}</td>
+              <td>{{comments}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,90 @@
+<template name="formularioDeSorteo">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="well bs-component" style="padding: 30px">
+        {{> logos}}
+      {{#if clientIsNotCreated}}
+        {{# if loading}}
+          {{> spinner}}
+          <div style="height: 50px;"></div>
+        {{else}}
+          
+          {{#if error}}
+          <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            {{error}}
+          </div>
+          {{/if}}
+       
+          <form class="form-horizontal">
+            <fieldset>
+              <legend>
+                Bienvenido a la Oktobertec en CONATEL
+                <br/>
+                <small style="font-size: 70%">Ingese sus datos para participar en el sorteo al final del evento.</small>
+              </legend>
+                <div class="form-group">
+                  <label for="inputName" class="col-lg-2 control-label">Nombre <i class="glyphicon glyphicon-asterisk text-danger"></i> </label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="Nombre Completo">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">Email <i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputCompany" class="col-lg-2 control-label">Empresa <i class="glyphicon glyphicon-asterisk text-danger"></i></label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputCompany" placeholder="Empresa">
+                  </div>
+                </div>
+                <!--
+		<div class="form-group">
+                  <div class="checkbox col-lg-offset-2">
+                    <label>
+                      <input id="checkboxProject" type="checkbox"> ¿Tiene previsto o está llevando adelante algún proyecto relacionado con estas tecnologías?
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox col-lg-offset-2">
+                    <label>
+                      <input id="checkboxContact" type="checkbox"> ¿Le gustaría que alguien de CONATEL lo contacte para profundizar sobre estas soluciones?
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="comments" class="col-lg-2 control-label">Comentarios</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" id="comments"></textarea>
+                    <span class="help-block">Utilice esta casilla para hacernos sus comentarios sobre el evento.</span>
+                  </div>
+                </div>
+		-->
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+        {{/if}}
+      {{else}}
+        <div style="text-align: center;">
+          <h1>Registro Completo!</h1>
+          <p>Felicitaciones {{client.name}}! Ha realizado su registro con exito.</p>
+          <p>Su número para el sorteo es el:</p>
+          <h2>{{client.count}}</h2>
+          <hr>
+          <button class="btn btn-primary" id="new_client">Nuevo Registro</button>
+        </div>
+      {{/if}}
+        {{> footer}}
+      </div>
+    </div>
+  </div>
+</template>
