@@ -16,12 +16,10 @@
           </div>
           {{/if}}
        
-          <form class="form-horizontal">
+          <form class="form-horizontal" style="margin-top: -20px">
             <fieldset>
-              <legend>
-                Bienvenido a la Oktobertec en CONATEL
-                <br/>
-                <small style="font-size: 70%">Ingese sus datos para participar en el sorteo al final del evento.</small>
+              <legend class="text-center">
+                <small style="font-size: 70%">Ingese sus datos para participar del sorteo al final del evento.</small>
               </legend>
                 <div class="form-group">
                   <label for="inputName" class="col-lg-2 control-label">Nombre <i class="glyphicon glyphicon-asterisk text-danger"></i> </label>
@@ -39,6 +37,27 @@
                   <label for="inputCompany" class="col-lg-2 control-label">Empresa <i class="glyphicon glyphicon-asterisk text-danger"></i></label>
                   <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputCompany" placeholder="Empresa">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-12 control-label" style="margin-bottom: 10px">
+                    Por favor, comparta con nosotros las áreas tecnológicas que a su empresa le gustaría desarrollar o mejorar
+                  </label>
+                  <div class="col-lg-4 col-lg-offset-2">
+                    <input data-tech="Routing" type="checkbox"> Routing
+                    <br>
+                    <input data-tech="Switching" type="checkbox"> Switching
+                    <br>
+                    <input data-tech="Wireless" type="checkbox"> Wireless
+                    <br>
+                  </div>
+                  <div class="col-lg-6">
+                    <input data-tech="Security" type="checkbox"> Security
+                    <br>
+                    <input data-tech="Datacenter" type="checkbox"> Datacenter
+                    <br>
+                    <input data-tech="Unified Communications" type="checkbox"> Unified Communications
+                    <br>
                   </div>
                 </div>
                 <!--

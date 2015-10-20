@@ -12,9 +12,8 @@ Template.formularioDeSorteo.events({
       name     : template.$('#inputName').val().toTitleCase(),
       email    : template.$('#inputEmail').val().toLowerCase(),
       company  : template.$('#inputCompany').val().toUpperCase(),
-      comments : template.$('#comments').val(),
-      project  : template.$('#checkboxProject').prop('checked'),
-      contact  : template.$('#checkboxContact').prop('checked'),
+      //project  : template.$('#checkboxProject').prop('checked'),
+      //contact  : template.$('#checkboxContact').prop('checked'),
     };
     if (Clients.isNotValid(client)) return Clients.clientIsNotValid(template, client);
     Session.set('loading', true);
@@ -37,9 +36,11 @@ Template.formularioDeSorteo.helpers({
   clientIsNotCreated : function() {
     var client, clientId;
     clientId = Session.get('clientId');
-    if (!clientId) return true;
+    if (!clientId) 
+      return true;
     client = Clients.findOne({_id: clientId});
-    if (!client) return true;
+    if (!client) 
+      return true;
     Session.set('client', client);
     return false;
   },
@@ -51,9 +52,12 @@ var isNotValid = function(client){
 
 var clientIsNotValid = function(template, client){
   var fields = [];
-  if (nameIsNotValid(client))    fields.push('#inputName');
-  if (emailIsNotValid(client))   fields.push('#inputEmail');
-  if (companyIsNotValid(client)) fields.push('#inputCompany');
+  if (nameIsNotValid(client))    
+    fields.push('#inputName');
+  if (emailIsNotValid(client))   
+    fields.push('#inputEmail');
+  if (companyIsNotValid(client)) 
+    fields.push('#inputCompany');
   _.each(fields, function(field){
     template.$(field).closest('.form-group').addClass('has-error');
   });

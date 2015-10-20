@@ -1,0 +1,7 @@
+.image-frame {
+  line-height: 165px;
+}
+
+.image-frame > img {
+  vertical-align: middle;
+}
