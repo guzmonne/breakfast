@@ -64,9 +64,13 @@
               <td>{{name}}</td>
               <td>{{email}}</td>
               <td>{{company}}</td>
-              <td>{{project}}</td>
-              <td>{{contact}}</td>
-              <td>{{comments}}</td>
+              <td>
+                <ul class="list-unstyled">
+                {{#each techs}}
+                  <li>{{this}}</li>
+                {{/each}}
+                </ul>
+              </td>
             </tr>
           {{/each}}
         </tbody>

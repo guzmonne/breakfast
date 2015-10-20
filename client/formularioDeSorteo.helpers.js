@@ -12,9 +12,11 @@ Template.formularioDeSorteo.events({
       name     : template.$('#inputName').val().toTitleCase(),
       email    : template.$('#inputEmail').val().toLowerCase(),
       company  : template.$('#inputCompany').val().toUpperCase(),
-      //project  : template.$('#checkboxProject').prop('checked'),
-      //contact  : template.$('#checkboxContact').prop('checked'),
+      techs    : [],
     };
+    template.$('input:checked').each(function(){
+      client.techs.push( $(this).data('tech') );
+    });
     if (Clients.isNotValid(client)) return Clients.clientIsNotValid(template, client);
     Session.set('loading', true);
     Session.set('error', false);
